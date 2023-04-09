@@ -1,0 +1,377 @@
+/* line 2, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.body-reg {
+  height: 100vh;
+  background: #2a2f33 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 11, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.card {
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+/* line 18, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.img-left {
+  width: 45%;
+  background: url("../img/img_login1.jpg") center;
+  background-size: cover;
+}
+
+/* line 25, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.img-left-2 {
+  width: 45%;
+  background: url("../img/img_register.jpg") center;
+  background-size: cover;
+}
+
+/* line 32, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.img-overview {
+  width: 45%;
+  background: url("../img/img_overview.jpg") center;
+  background-size: cover;
+}
+
+/* line 39, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.card-body {
+  padding: 2rem;
+  background: #dfdede;
+}
+
+/* line 43, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.title {
+  margin-bottom: 2rem;
+}
+
+/* line 46, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-input {
+  position: relative;
+}
+
+/* line 49, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-input input {
+  width: 100%;
+  height: 45px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: none;
+  border: 1px solid #00000020;
+  border-radius: 50px;
+  outline: none;
+  background: transparent;
+}
+
+/* line 61, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-input span {
+  position: absolute;
+  top: 10px;
+  padding-left: 15px;
+  color: #398AB9;
+}
+
+/* line 67, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-input input::placeholder {
+  color: black;
+  padding-left: 0px;
+}
+
+/* line 71, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-input input:focus, .form-input input:valid {
+  border: 2px solid #398AB9;
+}
+
+/* line 74, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-input input:focus::placeholder {
+  color: #1C658C;
+}
+
+/* line 77, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #398AB9;
+  border: 0px;
+}
+
+/* line 81, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box button[type="submit"] {
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background: #398AB9;
+  color: #fff;
+  font-size: 90%;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  transition: 0.5s;
+  padding: 12px;
+}
+
+/* line 94, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box button[type="submit"]:hover {
+  background: #398AB9;
+}
+
+/* line 97, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.forget-link, .register-link {
+  color: #398AB9;
+  font-weight: bold;
+}
+
+/* line 101, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.forget-link:hover, .register-link:hover {
+  color: #398AB9;
+  text-decoration: none;
+}
+
+/* line 105, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-social {
+  color: white;
+  border: 0;
+  font-weight: bold;
+}
+
+/* line 110, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-facebook {
+  background: #4866a8;
+}
+
+/* line 113, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-google {
+  background: #da3f34;
+}
+
+/* line 116, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-twitter {
+  background: #33ccff;
+}
+
+/* line 119, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-facebook:hover {
+  background: #3d578f;
+}
+
+/* line 122, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-google:hover {
+  background: #bf3b31;
+}
+
+/* line 125, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.form-box .btn-twitter:hover {
+  background: #2eb7e5;
+}
+
+/* line 130, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  text-align: center !important;
+  transform: translate(-50%, 0) !important;
+}
+
+/* line 137, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.masthead .masthead-avatar {
+  width: 15rem;
+}
+
+/* line 141, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.masthead {
+  padding-top: calc(6rem);
+  padding-bottom: 6rem;
+}
+
+/* line 146, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.masthead .masthead-heading {
+  font-size: 2.75rem;
+  line-height: 2.75rem;
+}
+
+/* line 151, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.masthead .masthead-subheading {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  /* line 157, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+  .masthead {
+    padding-top: calc(6rem);
+    padding-bottom: 6rem;
+  }
+  /* line 161, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+  .masthead .masthead-heading {
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+  /* line 165, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+  .masthead .masthead-subheading {
+    font-size: 1.5rem;
+  }
+}
+
+/* line 169, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #8e9eab;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* line 184, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 1%;
+  width: 250px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+/* line 194, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.open-menu {
+  max-height: 400px;
+}
+
+/* line 198, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+}
+
+/* line 204, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+/* line 209, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.user-info h3 {
+  font-weight: 400px;
+  font-size: 15px;
+  color: black;
+}
+
+/* line 216, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.user-info img {
+  width: 60px;
+  border-radius: 50%;
+  margin: 15px;
+}
+
+/* line 222, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu hr {
+  border: 0%;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 0px 0 0px;
+}
+
+/* line 230, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+
+/* line 238, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-link span {
+  font-weight: 600;
+  font-size: 20px;
+  transition: transform 0.5s;
+}
+
+/* line 244, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-link img {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+/* line 250, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-link p {
+  width: 100%;
+}
+
+/* line 254, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+/* line 258, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.sub-menu-link:hover p {
+  font-weight: 600;
+}
+
+/* line 261, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.user-pic {
+  width: 40px;
+  margin-left: 10%;
+  cursor: pointer;
+}
+
+/* line 269, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: transparent;
+  border: 0;
+}
+
+/* line 278, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, 0.85);
+  background-color: #d2f4ea;
+}
+
+/* line 284, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+/* line 291, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* line 294, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+/* line 298, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+
+/* line 305, ../../../OneDrive/Cursos/Diplomatura en Django/DjanceProject/djance/static_dev/scss/styles_format.scss */
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+/*# sourceMappingURL=styles_format.css.map */
