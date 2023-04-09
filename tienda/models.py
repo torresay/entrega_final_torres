@@ -8,8 +8,11 @@ class Marca(models.Model):
     ano_origen = models.IntegerField()
     contacto = models.EmailField()
 
+    def __str__(self,):
+        return str(self.marca)
 
-class Producto(models.Model):
+
+class Cartera(models.Model):
     modelo = models.CharField(max_length=40)
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     fecha_compra = models.DateField()
@@ -17,15 +20,18 @@ class Producto(models.Model):
     color = models.CharField(max_length=15)
     dimensiones = models.CharField(max_length=15)
 
+    def __str__(self,):
+        return str(self.modelo)
 
-class Usuario(models.Model):
 
-    nombre = models.CharField(max_length=45)
-    apellido = models.CharField(max_length=45)
-    fecha_nacimiento = models.DateField()
-    dni = models.IntegerField()
-    email = models.EmailField()
-    domicilio = models.CharField(max_length=40)
-    telefono = models.IntegerField()
-    carteras = models.ForeignKey(Producto, on_delete=models.CASCADE)
+class Zapato(models.Model):
+    modelo = models.CharField(max_length=40)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
+    fecha_compra = models.DateField()
+    precio = models.FloatField()
+    color = models.CharField(max_length=15)
+    dimensiones = models.CharField(max_length=15)
+
+    def __str__(self,):
+        return str(self.modelo)
     

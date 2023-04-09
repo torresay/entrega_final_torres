@@ -1,0 +1,88 @@
+{% extends "layout_home.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block next_content %}
+<div class="container">
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <a class="nav-link text-end" href="{% url 'cartera' %}">Back to Carteras<i class="fa-solid fa-backward"></i> </a>
+
+    <div class="row reflexion justify-content-around align-items-center" style="padding-top:20px;">
+        <div class="col-12 col-md-5 border bg-light" style="padding-bottom:15px;">
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Buscar Carteras</h2> 
+
+            <p class="lead text-center">Aqui puedes buscar todas tus carteras!</p>
+            <div class="col-lg-6 mx-auto">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+            </div>
+            
+            <div class="form-group">
+                <form action = "" method = "post">{% csrf_token %}
+                    <!-- Buscador -->
+                    
+                        {{ form.as_p }}
+                        <button type="submit" class="col-12 btn btn-secondary">Buscar Cartera</button>
+                    
+
+                    </form>
+
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+
+                    {% if resultados %}
+                    <div class="d-flex align-items-center flex-column">
+                
+            
+                        <table class="table table-striped table-hover shadow-lg p-3 mb-6 bg-white rounded-3">
+                            <thead>
+                                <tr class="table-secondary">
+                                    <th scope="col" style="text-align:center">MODELO</th>
+                                    <th scope="col" style="text-align:center">MARCA</th>
+                                    <th scope="col" style="text-align:center">FECHA DE COMPRA</th>
+                                    <th scope="col" style="text-align:center">PRECIO</th>
+                                    <th scope="col" style="text-align:center">COLOR</th>
+                                    <th scope="col" style="text-align:center">DIMENSIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+        
+                                {% for cartera in resultados %}
+        
+                                    <tr>
+                                        <td style="text-align:center"> {{ cartera.modelo }}</td>
+                                        <td style="text-align:center"> {{ cartera.marca }}</td>
+                                        <td style="text-align:center"> {{ cartera.fecha_compra }}</td>
+                                        <td style="text-align:center"> {{ cartera.precio }}</td>
+                                        <td style="text-align:center"> {{ cartera.color }}</td>
+                                        <td style="text-align:center"> {{ cartera.dimensiones }}</td>
+                                    </tr> 
+        
+                                    {% empty %}
+        
+                                    <tr>
+                                        <td colspan="6" style="text-align:center"> No existen carteras cargadas aun </td>
+                                    </tr> 
+        
+                                {% endfor %}
+        
+                            </tbody>
+                        </table>
+        
+                        <div class="col-lg-6 mx-auto">
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+            </div>
+        </div>  
+    </div>   
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+ </div>  
+
+{% endblock %}

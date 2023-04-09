@@ -1,0 +1,82 @@
+{% extends "layout_home.html" %}
+{% load static %}
+
+{% block next_content %}
+<div class="container">
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>
+
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+    
+    <div class="row">
+
+        <div class="col-sm-12"> 
+            <div class="d-flex align-items-center flex-column">
+
+                <h1 class="mb-0 text-align-center">Zapatos</h1>
+            </div>
+        
+            <div class="col-lg-6 mx-auto">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-1"></div>
+            </div>
+            <div class=" mb-1 mx-5 d-flex justify-content-end">
+
+                <a href="{% url 'add_zapato' %}" class="btn btn-outline-primary btn-block col-sm-1" role="button">Agregar</a>
+                <div style="opacity: 0;">esp</div>
+                <a href="{% url 'buscar_zapato' %}" class="btn btn-outline-warning btn-block col-sm-1" role="button">Buscar</a>
+            </div>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-1"></div>
+            <div class="d-flex align-items-center flex-column">
+                
+            
+                <table class="table table-striped table-hover shadow-lg p-3 mb-5 bg-white rounded-3">
+                    <thead>
+                        <tr class="table-secondary">
+                            <th scope="col" style="text-align:center">MODELO</th>
+                            <th scope="col" style="text-align:center">MARCA</th>
+                            <th scope="col" style="text-align:center">FECHA DE COMPRA</th>
+                            <th scope="col" style="text-align:center">PRECIO</th>
+                            <th scope="col" style="text-align:center">COLOR</th>
+                            <th scope="col" style="text-align:center">DIMENSIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for zapato in zapatos %}
+
+                            <tr>
+                                <td style="text-align:center"> {{ zapato.modelo }}</td>
+                                <td style="text-align:center"> {{ zapato.marca }}</td>
+                                <td style="text-align:center"> {{ zapato.fecha_compra }}</td>
+                                <td style="text-align:center"> {{ zapato.precio }}</td>
+                                <td style="text-align:center"> {{ zapato.color }}</td>
+                                <td style="text-align:center"> {{ zapato.dimensiones }}</td>
+                            </tr> 
+
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="6" style="text-align:center"> No existen zapatos cargados aun </td>
+                            </tr> 
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+                <div class="col-lg-6 mx-auto">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                </div>
+            </div>
+
+        </div>  
+    </div>
+</div>
+
+{% endblock %}
