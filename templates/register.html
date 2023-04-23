@@ -1,0 +1,98 @@
+{% extends "layout_home.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<body class="body-reg">
+
+    
+    <div class="container">
+        <div class="row px-3">
+            <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+                <div class="img-left d-none d-md-flex"></div>
+                
+                <div class="card-body">
+                    
+                    <h4 class="title text-center mt-4">
+                        Create an Account
+                    </h4>
+                    
+                    <form method="post" action="" class="form-box px-3">{%csrf_token%}
+
+                        
+                        <div class="form-floating mb-3">
+
+                             {{ form.username|add_class:"form-control" }}
+                             
+                             <label for="floatingInput">Username</label>
+
+                             <div class="list-group">
+
+                                {% for erro in form.username.errors %}
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">{{erro}}</a>
+                                {%endfor%}
+                                
+                            </div>
+
+                         </div>
+
+                         <div class="form-floating mb-3">
+                            {{ form.email|add_class:"form-control" }}
+                            <label for="floatingInput">Email</label>
+
+                            <div class="list-group">
+
+                                {% for erro in form.email.errors %}
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">{{erro}}</a>
+                                {%endfor%}
+                                
+                            </div>
+
+
+                        </div>
+                         
+
+                         <div class="form-floating mb-3">
+                            {{ form.password1|add_class:"form-control" }}
+                            <label for="floatingInput">Password</label>
+
+                            <div class="list-group">
+
+                                {% for erro in form.password1.errors %}
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">{{erro}}</a>
+                                {%endfor%}
+
+                            </div>
+
+
+                         </div>
+
+                         <div class="form-floating mb-3">
+                             
+                            {{ form.password2|add_class:"form-control" }}
+                            <label for="floatingInput">Confirm password</label>
+
+                            <div class="list-group">
+
+                                {% for erro in form.password2.errors %}
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">{{erro}}</a>
+                                {%endfor%}
+
+                            </div>    
+
+                        </div>                         
+
+                         <br>
+ 
+                         <div class="text-center mb-3">
+                             <input class="btn btn-secondary btn-lg" type="submit" value="Register" required="">
+                         </div>
+ 
+                     </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout_home.html" %}
+{% load static %}
+
+{% block next_content %}
+
+<div class="container">
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>
+
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+    
+    <div class="row">
+
+        <div class="col-sm-12"> 
+            <div class="d-flex align-items-center flex-column">
+
+                <h1 class="mb-0 text-align-center">About Us</h1>
+            </div>
+        
+            <div class="col-lg-6 mx-auto">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-1"></div>
+            </div>
+            
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-1"></div>
+           
+            <div class="d-flex bg-white">
+                <div class="align-items-center" style="margin-left: 30px; margin-top: 30px;">
+
+                    <h2>Autora del Proyecto: <b>Aylen Torres</b></h2>
+                    <p>Hola! Yo soy Aylen y he creado este Blog de Modas donde podras registrar tus carteras y zapatos como tambien dejar tu opinion sobre ellos!!</p>
+                    <p>Este proyecto esta enmarcado dentro del curso de Python de CoderHouse, siendo esta la entrega final. </p>
+                    <p>Demas esta decir que estoy atenta a cualquier devolución para la mejora de este proyecto!</p>
+                    <p>Y debajo encontrarás los links a mis redes sociales para estar en contacto!</p>
+                </div>
+            
+                
+
+                
+            </div>
+            
+        </div>  
+    </div>
+</div>
+
+{% endblock %}

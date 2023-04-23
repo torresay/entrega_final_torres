@@ -1,9 +1,18 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import *
 from .forms import *
 
 # Create your views here.
+def about(request):
+    params = {}
+    return render(request,'about.html',params)
+
+
 def marcas(request):
     
     marcas = Marca.objects.all()
@@ -118,3 +127,85 @@ def buscar_zapato(request):
     params = {'form': form, 'resultados': resultados}
     
     return render(request, 'buscar_zapato.html', params)
+
+
+def login(request):
+
+    params = {}
+
+    form = LoginForm()
+
+    params['form'] = form
+    params['form'] = form
+
+    #POST
+    if request.method == 'POST':
+        
+        form = LoginForm(request.POST)
+
+        print(form.is_valid())
+
+        if form.is_valid():
+
+            _user = form.cleaned_data['user']
+
+            _password = form.cleaned_data['password']
+
+            user = authenticate(request, username=_user, password=_password)
+            
+
+            if user is not None:
+                
+                auth_login(request, user)
+                
+                return redirect('home')
+            
+            else:
+                params['invalidate_auth'] = True
+                return render(request, 'log_in.html',params)
+
+        return render(request, 'log_in.html', params)
+
+    #GET
+    else:
+
+        return render(request,'log_in.html',params)
+
+
+def register(request):
+    params = {}
+
+    form = CreateUserForm()
+
+    params['form'] = form
+
+    if request.method == 'POST':
+        
+        form = CreateUserForm(request.POST)
+
+        params['form'] = form
+        
+        print(form.is_valid())
+
+        if form.is_valid():
+            
+            form.save()
+        
+            return redirect('login')
+        
+        else:
+        
+            return render(request,'register.html',params)
+
+    else:
+        return render(request,'register.html',params)
+    
+
+@login_required(login_url='/login/')
+def logout(request):
+    
+    auth_logout(request)
+
+    messages.info(request, 'You have successfully log out!')
+
+    return redirect('home')

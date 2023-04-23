@@ -3,6 +3,7 @@ from django.urls import path
 from tienda import views
 
 urlpatterns = [
+    path('about/', views.about, name='about'),
     path('marcas/', views.marcas, name='marcas'),
     path('cartera/', views.cartera, name='cartera'),
     path('zapato/', views.zapato, name='zapato'),
@@ -12,4 +13,8 @@ urlpatterns = [
     path('buscar_marca', views.buscar_marca, name='buscar_marca'),
     path('buscar_cartera', views.buscar_cartera, name='buscar_cartera'),
     path('buscar_zapato', views.buscar_zapato, name='buscar_zapato'),
+    #User
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
+    path('register', views.register, name='register'),
 ]

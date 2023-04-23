@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.models import User
 from .models import *
 
 class MarcaForm(forms.Form):
@@ -43,3 +45,32 @@ class BuscarZapatoForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingresa el zapato a buscar...'}),
         max_length=20
     )
+
+
+class LoginForm(forms.Form):
+
+    user = forms.CharField(widget=forms.TextInput(
+                attrs= {
+                    'placeholder':'Username'
+                }
+            ))
+    password = forms.CharField(widget=forms.PasswordInput(
+                attrs= {
+                    'placeholder':'Password'
+                }
+            ))
+    
+class CreateUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'email',
+            'password1',
+            'password2',
+                    ]
+                    
+    def __init__(self, *args, **kwargs):
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+
+        self.fields['email'].required = True
