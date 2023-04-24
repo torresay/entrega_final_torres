@@ -14,7 +14,6 @@ urlpatterns = [
     path('buscar_cartera', views.buscar_cartera, name='buscar_cartera'),
     path('buscar_zapato', views.buscar_zapato, name='buscar_zapato'),
     #User
-    path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
     path('register', views.register, name='register'),
 ]

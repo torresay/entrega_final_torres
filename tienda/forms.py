@@ -47,19 +47,6 @@ class BuscarZapatoForm(forms.Form):
     )
 
 
-class LoginForm(forms.Form):
-
-    user = forms.CharField(widget=forms.TextInput(
-                attrs= {
-                    'placeholder':'Username'
-                }
-            ))
-    password = forms.CharField(widget=forms.PasswordInput(
-                attrs= {
-                    'placeholder':'Password'
-                }
-            ))
-    
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
