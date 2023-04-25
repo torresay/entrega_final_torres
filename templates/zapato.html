@@ -44,6 +44,7 @@
                             <th scope="col" style="text-align:center">PRECIO</th>
                             <th scope="col" style="text-align:center">COLOR</th>
                             <th scope="col" style="text-align:center">DIMENSIONES</th>
+                            <th scope="col" class="text-center" style="text-align:center">Accions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +58,10 @@
                                 <td style="text-align:center"> {{ zapato.precio }}</td>
                                 <td style="text-align:center"> {{ zapato.color }}</td>
                                 <td style="text-align:center"> {{ zapato.dimensiones }}</td>
+                                <td class="d-flex justify-content-center">
+                                    <a href="#"><button class="btn btn-outline-secondary mx-1 ">Edit</button></a>
+                                    <a href="#"><button class="btn btn-outline-danger mx-1">Delete</button></a>
+                                </td>
                             </tr> 
 
                             {% empty %}

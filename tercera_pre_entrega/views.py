@@ -44,7 +44,7 @@ def log_in(request):
             if user is not None:
                 
                 auth_login(request, user)
-                
+                messages.info(request, 'Has iniciado sesion correctamente!')
                 return redirect('home')
             
             else:
@@ -57,3 +57,13 @@ def log_in(request):
     else:
 
         return render(request,'log_in.html',params)
+    
+
+
+def logout(request):
+    
+    auth_logout(request)
+
+    messages.info(request, 'Sesion finalizada!')
+
+    return redirect('index')

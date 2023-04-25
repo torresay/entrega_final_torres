@@ -5,8 +5,14 @@
 <header class="text-black text-center">
     <div class="col-lg-6 mx-auto">
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
-      </div>
-    
+        {% if messages %}
+          <ul class="messages alert alert-danger">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+          </ul>
+        {% endif %}
+    </div>
     <div class="container d-flex align-items-center flex-column">  
         
         <h1 class="heading display-4 fw-bold">Bienvenido al Blog de Bolsos y Zapatos!</h1>
@@ -45,4 +51,14 @@
 
 
 </header>
+
+<script>
+    // desaparece el mensaje despues de 3 segundos
+    setTimeout(function() {
+        var messages = document.querySelector('.messages');
+        if (messages) {
+            messages.style.display = 'none';
+        }
+    }, 3000);
+ </script>
 {% endblock %}

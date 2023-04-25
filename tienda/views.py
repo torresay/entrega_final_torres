@@ -50,6 +50,14 @@ def buscar_marca(request):
 
     return render(request, 'buscar_marca.html', params)
 
+# def deleteMarca(request, marca_id):
+    
+#     marca = Marca.objects.get(pk=marca_id)
+#     marca.delete()
+#     account_id = transaction.wallet.account.id
+#     messages.success(request, 'Has borrado la marca exitosamente!')
+    
+#     return redirect('marca', account_id=account_id)
 
 def cartera(request):
     carteras = Cartera.objects.all()
