@@ -45,6 +45,7 @@
                             <th scope="col" style="text-align:center">PRECIO</th>
                             <th scope="col" style="text-align:center">COLOR</th>
                             <th scope="col" style="text-align:center">DIMENSIONES</th>
+                            <th scope="col" style="text-align:center">IMAGEN</th>
                             <th scope="col" class="text-center" style="text-align:center">Accions</th>
                         </tr>
                     </thead>
@@ -59,8 +60,9 @@
                                 <td style="text-align:center"> {{ cartera.precio }}</td>
                                 <td style="text-align:center"> {{ cartera.color }}</td>
                                 <td style="text-align:center"> {{ cartera.dimensiones }}</td>
+                                <td style="text-align:center"> <img src="{{ cartera.imagen.url }}" alt="Miniatura de la imagen" width="85"></td>
 
-                                <td class="d-flex justify-content-center">
+                                <td style="text-align:center">
                                     <a href="#"><button class="btn btn-outline-secondary mx-1 ">Edit</button></a>
                                     <a href="#"><button class="btn btn-outline-danger mx-1">Delete</button></a>
                                 </td>
@@ -74,9 +76,10 @@
 
                         {% endfor %}
 
+                        
                     </tbody>
                 </table>
-
+                
                 <div class="col-lg-6 mx-auto">
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
                 </div>

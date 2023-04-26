@@ -7,6 +7,7 @@ class Marca(models.Model):
     pais  = models.CharField(max_length=15)
     ano_origen = models.IntegerField()
     contacto = models.EmailField()
+    imagen = models.ImageField(upload_to='marcas/', null=True, blank=True)
 
     def __str__(self,):
         return str(self.marca)
@@ -19,6 +20,7 @@ class Cartera(models.Model):
     precio = models.FloatField()
     color = models.CharField(max_length=15)
     dimensiones = models.CharField(max_length=15)
+    imagen = models.ImageField(upload_to='carteras/', null=True, blank=True)
 
     def __str__(self,):
         return str(self.modelo)
@@ -31,6 +33,7 @@ class Zapato(models.Model):
     precio = models.FloatField()
     color = models.CharField(max_length=15)
     dimensiones = models.CharField(max_length=15)
+    imagen = models.ImageField(upload_to='zapatos/', null=True, blank=True)
 
     def __str__(self,):
         return str(self.modelo)

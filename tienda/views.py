@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.conf import settings
 from .models import *
 from .forms import *
 
@@ -29,6 +30,7 @@ def add_marca(request):
             marca.pais = form.cleaned_data['pais']
             marca.ano_origen = form.cleaned_data['ano_origen']
             marca.contacto = form.cleaned_data['contacto']
+            marca.imagen = form.cleaned_data['imagen']
             marca.save()
             form = MarcaForm()
             return redirect('marcas')
@@ -61,7 +63,7 @@ def buscar_marca(request):
 
 def cartera(request):
     carteras = Cartera.objects.all()
-    params = {'carteras':carteras}
+    params = {'carteras':carteras,'MEDIA_URL': settings.MEDIA_URL}
     return render(request,'cartera.html', params)
 
 def add_cartera(request):
@@ -76,6 +78,7 @@ def add_cartera(request):
             cartera.precio = form.cleaned_data['precio']
             cartera.color = form.cleaned_data['color']
             cartera.dimensiones = form.cleaned_data['dimensiones']
+            cartera.imagen = form.cleaned_data['imagen']
             cartera.save()
             form = CarteraForm()
             return redirect('cartera')
@@ -115,6 +118,7 @@ def add_zapato(request):
             zapato.precio = form.cleaned_data['precio']
             zapato.color = form.cleaned_data['color']
             zapato.dimensiones = form.cleaned_data['dimensiones']
+            zapato.imagen = form.cleaned_data['imagen']
             zapato.save()
             form = ZapatoForm()
             return redirect('zapato')

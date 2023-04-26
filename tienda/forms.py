@@ -8,6 +8,7 @@ class MarcaForm(forms.Form):
     pais  = forms.CharField(max_length=15)
     ano_origen = forms.IntegerField()
     contacto = forms.EmailField()
+    imagen = forms.ImageField()
 
 class CarteraForm(forms.Form):
     modelo = forms.CharField(max_length=40)
@@ -16,6 +17,7 @@ class CarteraForm(forms.Form):
     precio = forms.FloatField()
     color = forms.CharField(max_length=15)
     dimensiones = forms.CharField(max_length=20)
+    imagen = forms.ImageField()
 
 class ZapatoForm(forms.Form):
     modelo = forms.CharField(max_length=40)
@@ -24,6 +26,7 @@ class ZapatoForm(forms.Form):
     precio = forms.FloatField()
     color = forms.CharField(max_length=15)
     dimensiones = forms.CharField(max_length=20)
+    imagen = forms.ImageField()
 
 class BuscarMarcaForm(forms.Form):
     marca = forms.CharField(
