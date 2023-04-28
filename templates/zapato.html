@@ -35,7 +35,7 @@
             <div class="d-flex align-items-center flex-column">
                 
             
-                <table class="table table-striped table-hover shadow-lg p-3 mb-5 bg-white rounded-3">
+                <table class="table align-middle table-striped table-hover shadow-lg p-3 mb-5 bg-white rounded-3">
                     <thead>
                         <tr class="table-secondary">
                             <th scope="col" style="text-align:center">MODELO</th>
@@ -59,8 +59,12 @@
                                 <td style="text-align:center"> {{ zapato.precio }}</td>
                                 <td style="text-align:center"> {{ zapato.color }}</td>
                                 <td style="text-align:center"> {{ zapato.dimensiones }}</td>
-                                <td style="text-align:center"> {{ zapato.imagen }}</td>
-                                <td class="d-flex justify-content-center">
+                                {% if zapato.imagen %}
+                                    <td style="text-align:center"> <img src="{{ zapato.imagen.url }}" alt="Miniatura de la imagen" width="85"></td>
+                                {% else %}
+                                    <td style="text-align:center"> No hay imagen disponible </td>
+                                {% endif %}
+                                <td class="text-align:center">
                                     <a href="#"><button class="btn btn-outline-secondary mx-1 ">Edit</button></a>
                                     <a href="#"><button class="btn btn-outline-danger mx-1">Delete</button></a>
                                 </td>

@@ -17,7 +17,7 @@ def about(request):
 def marcas(request):
     
     marcas = Marca.objects.all()
-    params = {'marcas':marcas}
+    params = {'marcas':marcas,'MEDIA_URL': settings.MEDIA_URL}
     return render(request,'marcas.html', params)
 
 def add_marca(request):
@@ -103,7 +103,7 @@ def buscar_cartera(request):
 
 def zapato(request):
     zapatos = Zapato.objects.all()
-    params = {'zapatos':zapatos}
+    params = {'zapatos':zapatos,'MEDIA_URL': settings.MEDIA_URL}
     return render(request,'zapato.html', params)
 
 def add_zapato(request):

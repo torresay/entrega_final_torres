@@ -60,7 +60,11 @@
                                 <td style="text-align:center"> {{ cartera.precio }}</td>
                                 <td style="text-align:center"> {{ cartera.color }}</td>
                                 <td style="text-align:center"> {{ cartera.dimensiones }}</td>
-                                <td style="text-align:center"> <img src="{{ cartera.imagen.url }}" alt="Miniatura de la imagen" width="85"></td>
+                                {% if cartera.imagen %}
+                                    <td style="text-align:center"> <img src="{{ cartera.imagen.url }}" alt="Miniatura de la imagen" width="85"></td>
+                                {% else %}
+                                    <td style="text-align:center"> No hay imagen disponible </td>
+                                {% endif %}
 
                                 <td style="text-align:center">
                                     <a href="#"><button class="btn btn-outline-secondary mx-1 ">Edit</button></a>
