@@ -3,31 +3,26 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib.auth.models import User
 from .models import *
 
-class MarcaForm(forms.Form):
-    marca = forms.CharField(max_length=40)
-    pais  = forms.CharField(max_length=15)
-    ano_origen = forms.IntegerField()
-    contacto = forms.EmailField()
-    imagen = forms.ImageField()
+# class MarcaForm(forms.Form):
+#     marca = forms.CharField(max_length=40)
+#     pais  = forms.CharField(max_length=15)
+#     ano_origen = forms.IntegerField()
+#     contacto = forms.EmailField()
+#     imagen = forms.ImageField()
 
-class CarteraForm(forms.Form):
-    modelo = forms.CharField(max_length=40)
-    marca = forms.ModelChoiceField(Marca.objects.all())
-    fecha_compra = forms.DateField()
-    precio = forms.FloatField()
-    color = forms.CharField(max_length=15)
-    dimensiones = forms.CharField(max_length=20)
-    imagen = forms.ImageField()
+class MarcaForm(forms.ModelForm):
+    class Meta:
+        model = Marca
+        fields = ['marca', 'pais', 'ano_origen', 'contacto', 'imagen']
+class CarteraForm(forms.ModelForm):
+    class Meta:
+        model = Cartera
+        fields = ['modelo', 'marca', 'fecha_compra', 'precio', 'color', 'dimensiones', 'imagen']
 
-class ZapatoForm(forms.Form):
-    modelo = forms.CharField(max_length=40)
-    marca = forms.ModelChoiceField(Marca.objects.all())
-    fecha_compra = forms.DateField()
-    precio = forms.FloatField()
-    color = forms.CharField(max_length=15)
-    dimensiones = forms.CharField(max_length=20)
-    imagen = forms.ImageField()
-
+class ZapatoForm(forms.ModelForm):
+    class Meta:
+        model = Zapato
+        fields = ['modelo', 'marca', 'fecha_compra', 'precio', 'color', 'dimensiones', 'imagen']
 class BuscarMarcaForm(forms.Form):
     marca = forms.CharField(
         label='Buscar Marca',

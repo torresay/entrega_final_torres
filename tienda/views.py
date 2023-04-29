@@ -3,8 +3,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.views.generic import FormView, UpdateView
 from django.contrib import messages
 from django.conf import settings
+from django.urls import reverse
 from .models import *
 from .forms import *
 
@@ -51,6 +53,19 @@ def buscar_marca(request):
     params = {'form': form, 'resultados': resultados}
 
     return render(request, 'buscar_marca.html', params)
+
+def editMarca(request, marca_id):
+    _marca = Marca.objects.get(id=marca_id)
+    form = MarcaForm(instance=_marca, data=request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('marcas')
+
+    params = {'form':form}
+    return render(request, 'edit_marca.html', params)
+
+    
 
 # def deleteMarca(request, marca_id):
     
@@ -101,10 +116,23 @@ def buscar_cartera(request):
     return render(request, 'buscar_cartera.html', params)
 
 
+def editCartera(request, cartera_id):
+    _cartera = Cartera.objects.get(id=cartera_id)
+    form = CarteraForm(instance=_cartera, data=request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('cartera')
+
+    params = {'form':form}
+    return render(request, 'edit_cartera.html', params)
+
+
 def zapato(request):
     zapatos = Zapato.objects.all()
     params = {'zapatos':zapatos,'MEDIA_URL': settings.MEDIA_URL}
     return render(request,'zapato.html', params)
+
 
 def add_zapato(request):
 
@@ -128,8 +156,25 @@ def add_zapato(request):
     params = {'form':form}
     return render(request, 'add_zapato.html', params)
 
+
+def editZapato(request, zapato_id):
+
+    _zapato = Zapato.objects.get(id=zapato_id)
+
+    form = ZapatoForm(instance=_zapato, data=request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('zapato')
+
+    params = {'form':form}
+    return render(request, 'edit_zapato.html', params)
+
+
 def buscar_zapato(request):
+
     form = BuscarZapatoForm(request.POST)
+
     resultados = []
 
     if form.is_valid():
@@ -139,49 +184,6 @@ def buscar_zapato(request):
     params = {'form': form, 'resultados': resultados}
     
     return render(request, 'buscar_zapato.html', params)
-
-
-def login(request):
-
-    params = {}
-
-    form = LoginForm()
-
-    params['form'] = form
-    params['form'] = form
-
-    #POST
-    if request.method == 'POST':
-        
-        form = LoginForm(request.POST)
-
-        print(form.is_valid())
-
-        if form.is_valid():
-
-            _user = form.cleaned_data['user']
-
-            _password = form.cleaned_data['password']
-
-            user = authenticate(request, username=_user, password=_password)
-            
-
-            if user is not None:
-                
-                auth_login(request, user)
-                
-                return redirect('home')
-            
-            else:
-                params['invalidate_auth'] = True
-                return render(request, 'log_in.html',params)
-
-        return render(request, 'log_in.html', params)
-
-    #GET
-    else:
-
-        return render(request,'log_in.html',params)
 
 
 def register(request):

@@ -15,6 +15,9 @@ urlpatterns = [
     path('buscar_marca', views.buscar_marca, name='buscar_marca'),
     path('buscar_cartera', views.buscar_cartera, name='buscar_cartera'),
     path('buscar_zapato', views.buscar_zapato, name='buscar_zapato'),
+    path('edit_cartera/<cartera_id>', views.editCartera, name='edit_cartera'),
+    path('edit_zapato/<zapato_id>', views.editZapato, name='edit_zapato'),
+    path('edit_marca/<marca_id>', views.editMarca, name='edit_marca'),
     #User
     path('register', views.register, name='register'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

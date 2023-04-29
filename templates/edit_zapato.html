@@ -1,0 +1,78 @@
+{% extends "layout_home.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block next_content %}
+
+
+<div class="container">
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>
+
+    <div class="row reflexion justify-content-around align-items-center" style="padding-top:20px;">
+        <div class="col-12 col-md-5 border bg-light" style="padding-bottom:15px;">
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Editar Zapato</h2> 
+            
+            <p class="lead text-center">Aqui puedes editar cualquier caracteristica de tu zapato</p>
+
+            <div class="col-lg-6 mx-auto">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+            </div>
+            
+            <div class="form-group">
+                <form action = "" method = "post">{% csrf_token %}
+                    <!-- Modelo -->
+                    <label for="{{ form.modelo.id_for_label }}" class="col-sm-2 col-form-label fs-5"><b>Modelo:</b></label>
+                    {{ form.modelo.errors }}
+                    {{ form.modelo|add_class:"form-control" }}
+                    <!-- Marca -->
+                    <label for="{{ form.marca.id_for_label }}" class="col-sm-4 col-form-label fs-5"><b>Marca:</b></label>
+                    {{ form.marca.errors }}
+                    {{ form.marca|add_class:"form-control" }}
+                    <!-- Fecha de Compra -->
+                    <label for="{{ form.fecha_compra.id_for_label }}" class="col-sm-4 col-form-label fs-5"><b>Fecha de Compra:</b></label>
+                    {{ form.fecha_compra.errors }}
+                    {{ form.fecha_compra|add_class:"form-control" }}
+                    <!-- Precio -->
+                    <label for="{{ form.precio.id_for_label }}" class="col-sm-2 col-form-label fs-5"><b>Precio:</b></label>
+                    {{ form.precio.errors }}
+                    {{ form.precio|add_class:"form-control" }}
+                    <!-- Color -->
+                    <label for="{{ form.color.id_for_label }}" class="col-sm-2 col-form-label fs-5"><b>Color:</b></label>
+                    {{ form.color.errors }}
+                    {{ form.color|add_class:"form-control" }}
+                    <!-- Dimensiones -->
+                    <label for="{{ form.dimensiones.id_for_label }}" class="col-sm-2 col-form-label fs-5"><b>Dimensiones:</b></label>
+                    {{ form.dimensiones.errors }}
+                    {{ form.dimensiones|add_class:"form-control" }}
+                    <!--Imagen-->
+                    <label for="{{ form.imagen.id_for_label }}" class="col-sm-2 col-form-label fs-5"><b>Imagen:</b></label>
+                    {{ form.imagen.errors }}
+                    {{ form.imagen|add_class:"form-control" }}
+
+                    <div class="row justify-content-between">
+                        <div class="col-lg-6 mx-auto">
+                            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-right:30px;">
+                            <input type="submit" value="Editar" class="col-12 btn btn-secondary">
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>  
+    </div>   
+
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+ </div>  
+
+
+{% endblock %}
