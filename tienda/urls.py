@@ -18,6 +18,9 @@ urlpatterns = [
     path('edit_cartera/<cartera_id>', views.editCartera, name='edit_cartera'),
     path('edit_zapato/<zapato_id>', views.editZapato, name='edit_zapato'),
     path('edit_marca/<marca_id>', views.editMarca, name='edit_marca'),
+    path('delete_marca/<marca_id>', views.deleteMarca, name='delete_marca'),
+    path('delete_cartera/<cartera_id>', views.deleteCartera, name='delete_cartera'),
+    path('delete_zapato/<zapato_id>', views.deleteZapato, name='delete_zapato'),
     #User
     path('register', views.register, name='register'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

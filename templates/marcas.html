@@ -5,6 +5,13 @@
 <div class="container">
     <div class="col-lg-6 mx-auto">
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+        {% if messages %}
+            <ul class="messages alert alert-success">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 
     <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>
@@ -62,7 +69,7 @@
                                 {% endif %}
                                 <td class="text-align:center">
                                     <a href="{% url 'edit_marca' marca.id %}"><button class="btn btn-outline-secondary mx-1 ">Edit</button></a>
-                                    <a href="#"><button class="btn btn-outline-danger mx-1">Delete</button></a>
+                                    <a href="{% url 'delete_marca' marca.id %}"><button class="btn btn-outline-danger mx-1">Delete</button></a>
                                 </td>
                             </tr> 
 
@@ -86,5 +93,13 @@
     </div>
 </div>
 
-
+<script>
+    // desaparece el mensaje despues de 3 segundos
+    setTimeout(function() {
+        var messages = document.querySelector('.messages');
+        if (messages) {
+            messages.style.display = 'none';
+        }
+    }, 3000);
+ </script>
 {% endblock %}

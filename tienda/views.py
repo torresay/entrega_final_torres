@@ -67,14 +67,14 @@ def editMarca(request, marca_id):
 
     
 
-# def deleteMarca(request, marca_id):
+def deleteMarca(request, marca_id):
     
-#     marca = Marca.objects.get(pk=marca_id)
-#     marca.delete()
-#     account_id = transaction.wallet.account.id
-#     messages.success(request, 'Has borrado la marca exitosamente!')
+    marca = Marca.objects.get(pk=marca_id)
+    marca.delete()
     
-#     return redirect('marca', account_id=account_id)
+    messages.success(request, 'Has borrado la marca exitosamente!')
+    
+    return redirect('marcas')
 
 def cartera(request):
     carteras = Cartera.objects.all()
@@ -126,6 +126,16 @@ def editCartera(request, cartera_id):
 
     params = {'form':form}
     return render(request, 'edit_cartera.html', params)
+
+
+def deleteCartera(request, cartera_id):
+    
+    cartera = Cartera.objects.get(pk=cartera_id)
+    cartera.delete()
+    
+    messages.success(request, 'Has borrado la cartera exitosamente!')
+    
+    return redirect('cartera')
 
 
 def zapato(request):
@@ -184,6 +194,16 @@ def buscar_zapato(request):
     params = {'form': form, 'resultados': resultados}
     
     return render(request, 'buscar_zapato.html', params)
+
+
+def deleteZapato(request, zapato_id):
+    
+    zapato = Zapato.objects.get(pk=zapato_id)
+    zapato.delete()
+    
+    messages.success(request, 'Has borrado el zapato exitosamente!')
+    
+    return redirect('zapato')
 
 
 def register(request):
