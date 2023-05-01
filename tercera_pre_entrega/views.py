@@ -7,14 +7,19 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from tienda.models import *
 
 def index(request):
-    params = {}
+    params = {}   
     return render(request,'index.html',params)
 
 def home(request):
-    params = {}
-    return render(request,'home.html',params)
+    
+    user_data = {
+        'username': request.user.username,
+        'first_name': request.user.first_name,        
+    }
+    return render(request,'home.html',{'user_data': user_data})
 
 def log_in(request):
     

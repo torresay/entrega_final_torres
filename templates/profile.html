@@ -1,0 +1,90 @@
+{% extends "layout_home.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block next_content %}
+<div class="container">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>  
+    <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>   
+    <div class="col-lg-6 mx-auto"></div>
+        
+    <div class="d-flex align-items-center flex-column">
+        <div class="col-sm-10">
+            <div class="d-flex flex-column">
+                
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>  
+                <div class="form-group">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-4">Editar Informacion del Perfil</legend>
+                                <div class="form-row">
+                                    <div class="form-floating mb-3">
+                                        {{ form.first_name.errors }}
+                                        {{ form.first_name|add_class:"form-control" }}
+                                        <label for="floatingInput">First name</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        {{ form.last_name.errors }}
+                                        {{ form.last_name|add_class:"form-control" }}
+                                        <label for="floatingInput">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    {{ form.dni.errors }}
+                                    {{ form.dni|add_class:"form-control" }}
+                                    <label for="floatingInput">DNI</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    {{ form.phone.errors }}
+                                    {{ form.phone|add_class:"form-control" }}
+                                    <label for="floatingInput">Phone</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    {{ form.adress.errors }}
+                                    {{ form.adress|add_class:"form-control" }}
+                                    <label for="floatingInput">Adress</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    {{ form.city.errors }}
+                                    {{ form.city|add_class:"form-control" }}
+                                    <label for="floatingInput">City</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    {{ form.state.errors }}
+                                    {{ form.state|add_class:"form-control" }}
+                                    <label for="floatingInput">State</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    {{ form.country.errors }}
+                                    {{ form.country|add_class:"form-control" }}
+                                    <label for="floatingInput">Country</label>
+                                </div>
+
+                                
+                                <img src="{{ request.user.datauser.imagen.url }}" class="img-fluid pt-1 me-1" style="max-height: 40px;" >
+
+                                <div class="form-floating mb-12">
+                                    {{ form.imagen.errors }}
+                                    {{ form.imagen|add_class:"form-control" }}
+                                    <label for="floatingInput"></label>
+                                </div>
+                                
+                            </fieldset>                       
+                            <div class="text-center mb-3">
+                                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                                <input class="btn btn-secondary btn-lg" type="submit" value="Edit Profile" required="">
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+</div>
+
+{% endblock %}
+

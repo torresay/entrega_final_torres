@@ -243,3 +243,65 @@ def logout(request):
     messages.info(request, 'You have successfully log out!')
 
     return redirect('home')
+
+
+# @login_required(login_url='/login/')
+class editProfile(UpdateView):
+
+    template = "profile.html"
+
+    params = {}
+
+
+    def get(self, request):
+        try:
+            dataUser = DataUser.objects.get(user=request.user)
+        except DataUser.DoesNotExist:
+            dataUser = DataUser.objects.create(user=request.user)
+        
+        form = EditProfileForm(request=request, instance= dataUser)
+
+        self.params['user'] = request.user
+        self.params['form'] = form
+
+        return render(request, self.template, self.params)
+
+
+    def post(self, request):
+        try:
+            dataUser = DataUser.objects.get(user=request.user)
+        except DataUser.DoesNotExist:
+            dataUser = DataUser.objects.create(user=request.user)
+
+        form = EditProfileForm(request.POST, request=request, instance = dataUser )
+
+        self.params['form'] = form
+
+        if form.is_valid():
+
+            _first_name = form.cleaned_data['first_name']
+            _last_name = form.cleaned_data['last_name']
+            _date_birth = form.cleaned_data['date_birth']
+            _phone = form.cleaned_data['phone']
+            _adress = form.cleaned_data['adress']
+            _country = form.cleaned_data['country']
+            _state = form.cleaned_data['state']
+            _city = form.cleaned_data['city']
+            _dni = form.cleaned_data['dni']
+            _imagen = form.cleaned_data['imagen']
+
+            dataUser = DataUser.objects.filter(user=request.user).update(
+                        first_name = _first_name,
+                        last_name = _last_name,
+                        date_birth = _date_birth,
+                        phone = _phone,
+                        adress = _adress,
+                        country = _country,
+                        state = _state,
+                        city = _city,
+                        dni = _dni,
+                        imagen = _imagen)
+            return redirect('home')
+
+            # redirect to Home:
+        return render(request, self.template, self.params)

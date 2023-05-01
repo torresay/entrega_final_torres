@@ -3,13 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.contrib.auth.models import User
 from .models import *
 
-# class MarcaForm(forms.Form):
-#     marca = forms.CharField(max_length=40)
-#     pais  = forms.CharField(max_length=15)
-#     ano_origen = forms.IntegerField()
-#     contacto = forms.EmailField()
-#     imagen = forms.ImageField()
-
 class MarcaForm(forms.ModelForm):
     class Meta:
         model = Marca
@@ -59,3 +52,46 @@ class CreateUserForm(UserCreationForm):
         super(CreateUserForm, self).__init__(*args, **kwargs)
 
         self.fields['email'].required = True
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = DataUser
+        fields = [
+            'first_name',
+            'last_name',
+            'date_birth',
+            'phone',
+            'adress',
+            'country',
+            'state',
+            'city',
+            'dni',
+            'imagen'
+        ]
+        widgets = {
+            'date_birth': DateInput(),
+        }
+
+
+    def __init__(self, *args, **kwargs):
+        
+        self.request = kwargs.pop("request")
+
+        super(EditProfileForm,self).__init__(*args, **kwargs)
+
+        self.user = self.request.user
+        self.dataUser = DataUser.objects.filter(user=self.request.user).get()
+        self.fields['first_name'].initial = self.dataUser.first_name
+        self.fields['last_name'].initial = self.dataUser.last_name
+        self.fields['date_birth'].initial = self.dataUser.date_birth
+        self.fields['phone'].initial = self.dataUser.phone
+        self.fields['adress'].initial = self.dataUser.adress
+        self.fields['country'].initial = self.dataUser.country
+        self.fields['state'].initial = self.dataUser.state
+        self.fields['city'].initial = self.dataUser.city
+        self.fields['dni'].initial = self.dataUser.dni
+        self.fields['imagen'].initial = self.dataUser.imagen

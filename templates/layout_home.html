@@ -12,9 +12,9 @@
       </button>
       
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav w-100 justify-content-center">
+        <ul class="navbar-nav w-100 justify-content-center" style="text-align:center">
           
-          <li class="nav-item col-2 text-left">
+          <li class="nav-item col-1 text-left">
             <a class="nav-link" href="{% url 'home' %}"><b>Home</b></a>
           </li>
 
@@ -26,15 +26,27 @@
             <a class="nav-link" href="{% url 'zapato' %}"><b> Zapatos</b></a>
           </li>
   
-          <li class="nav-item col-2 text-center">
-            <a class="nav-link" href="{% url 'marcas' %}"><b>Marcas</b></a>
+          <li class="nav-item col-2 text-center" >
+            <a class="nav-link" href="{% url 'marcas' %}" ><b>Marcas</b></a>
           </li>
 
           <li class="nav-item col-2 text-center">
             <a class="nav-link" href="{% url 'about' %}"><b>About Us</b></a>
           </li>
 
-          <li class="nav-item col-2 text-end">
+          <li class="nav-item col-1 text-center">
+            {% if request.user.datauser.imagen %}
+              <img src="{{ request.user.datauser.imagen.url }}" class="img-fluid pt-1 me-1" style="max-height: 40px;"><b>{{ request.user.datauser.first_name }}</b>
+            {% else %}
+              <img src="/media/profile_images/default.png" class="img-fluid pt-1 me-1" style="max-height: 40px;">
+            {% endif %}
+          </li>
+
+          <li class="nav-item col-1 text-end">  
+            <a class="nav-link" href="{% url 'profile' %}" ><b>Profile <i class="fa-solid fa-user"></i></b></a>
+          </li> 
+
+          <li class="nav-item col-1 text-end">
             <a class="btn btn-outline-dark my-login" href="{% url 'logout' %}" >Log Out</a>
           </li> 
   

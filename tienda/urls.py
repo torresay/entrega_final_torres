@@ -23,4 +23,5 @@ urlpatterns = [
     path('delete_zapato/<zapato_id>', views.deleteZapato, name='delete_zapato'),
     #User
     path('register', views.register, name='register'),
+    path('profile', views.editProfile.as_view(), name='profile'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

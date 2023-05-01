@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #My Apps
-    'tienda',
+    'tienda.apps.TiendaConfig',
 
     #Widget Tweaks
     'widget_tweaks',

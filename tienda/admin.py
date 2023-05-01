@@ -6,3 +6,5 @@ admin.site.register(Marca)
 admin.site.register(Cartera)
 
 admin.site.register(Zapato)
+
+admin.site.register(DataUser) 
