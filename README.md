@@ -8,3 +8,5 @@
 ##En la pestaña de zapatos tendran una tabla donde se pondran los zapatos que ya se hayan cargado, y donde tendran dos botones: 'Agregar' y 'buscar'. En el caso de Agregar tendran un formulario que le permitira agregar mas zapatos, y el otro formulario le permitira buscar el zapato por el modelo de zapato.
 
 ##Y por ultimo, en la pestaña de marcas donde tendran una tabla donde se pondran las marcas que ya se tengan cargadas, y donde tendran dos botones: 'Agregar' y 'buscar'. En el caso de Agregar tendran un formulario que le permitira agregar mas marcas, y el otro formulario le permitira buscar la marca por el nombre de la marca.
+
+## Prueba readme desde nueva maquina
