@@ -1,0 +1,51 @@
+{% extends 'layout_home.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block next_content %}
+
+<div class="container">
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>
+
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="d-flex align-items-center flex-column">
+
+                <h1 class="mb-0 text-align-center">Enviar Mensaje</h1>
+            </div>
+            <div class="col-lg-6 mx-auto">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-1"></div>
+            </div>
+            <div class="row reflexion justify-content-around align-items-center" style="padding-top:20px;">
+                <div class="col-12 col-md-5 border bg-light" style="padding-bottom:15px;">
+                    <div class="form-group">
+    
+                        <form method="POST">{% csrf_token %}
+                            <label for="{{ form.contenido.id_for_label }}" class="col-sm-6 col-form-label fs-5"><b>Contenido:</b></label>
+                            {{ form.contenido.errors }}
+                            {{ form.contenido|add_class:"form-control" }}
+                            <div class="col-lg-6 mx-auto">
+                                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                            </div>
+                            <button type="submit" class="col-12 btn btn-secondary">Enviar</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

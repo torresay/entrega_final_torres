@@ -1,0 +1,63 @@
+{% extends 'layout_home.html' %}
+{% load static %}
+{% block next_content %}
+
+<div class="container">
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+        {% if messages %}
+            <ul class="messages alert alert-success">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <a class="nav-link text-end" href="{% url 'home' %}">Back to Home<i class="fa-solid fa-backward"></i> </a>
+
+    <div class="col-lg-6 mx-auto">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="d-flex align-items-center flex-column">
+
+                <h1 class="mb-0 text-align-center">Mensajes</h1>
+                <div class="col-lg-6 mx-auto">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-1"></div>
+                </div>
+
+                <div class="row reflexion justify-content-around align-items-center" style="padding-top:20px;">
+                    <ul class="list-group">
+                        {% for mensaje in mensajes %}
+                          <li class="list-group-item">
+                            <b>{{ mensaje.autor}}</b> ({{ mensaje.fecha }}):
+                            {{ mensaje.contenido }}
+                          </li>
+                        {% empty %}
+                          <li class="list-group-item">No hay mensajes aun</li>
+                        {% endfor %}
+                      </ul>
+                    <div class="col-lg-6 mx-auto">
+                        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"></div>
+                    </div>
+                    <a class="btn btn-secondary" href="{% url 'enviar_mensaje' %}" role="button">Enviar Mensaje</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // desaparece el mensaje despues de 3 segundos
+    setTimeout(function() {
+        var messages = document.querySelector('.messages');
+        if (messages) {
+            messages.style.display = 'none';
+        }
+    }, 3000);
+ </script>
+{% endblock %}

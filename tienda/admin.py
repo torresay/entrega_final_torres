@@ -8,3 +8,5 @@ admin.site.register(Cartera)
 admin.site.register(Zapato)
 
 admin.site.register(DataUser) 
+
+admin.site.register(Mensaje) 

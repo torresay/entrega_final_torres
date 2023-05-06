@@ -24,4 +24,6 @@ urlpatterns = [
     #User
     path('register', views.register, name='register'),
     path('profile', views.editProfile.as_view(), name='profile'),
+    path('enviar_mensaje', views.enviar_mensaje, name='enviar_mensaje'),
+    path('ver_mensajes', views.ver_mensajes, name='ver_mensajes'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

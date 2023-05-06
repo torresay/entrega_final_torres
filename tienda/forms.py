@@ -95,3 +95,11 @@ class EditProfileForm(forms.ModelForm):
         self.fields['city'].initial = self.dataUser.city
         self.fields['dni'].initial = self.dataUser.dni
         self.fields['imagen'].initial = self.dataUser.imagen
+
+
+class MensajeForm(forms.ModelForm):
+    contenido = forms.CharField(widget=forms.Textarea(attrs={'rows': 5}))
+
+    class Meta:
+        model = Mensaje
+        fields = ['contenido']

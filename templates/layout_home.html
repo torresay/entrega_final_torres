@@ -5,56 +5,61 @@
 {% block content %} 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="ligth">
   
-    <div class="container-fluid">
+  <div class="container-fluid">
       
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
       
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav w-100 justify-content-center" style="text-align:center">
-          
-          <li class="nav-item col-1 text-left">
-            <a class="nav-link" href="{% url 'home' %}"><b>Home</b></a>
-          </li>
-
-          <li class="nav-item col-2 text-center">
-            <a class="nav-link" href="{% url 'cartera' %}"><b> Carteras</b></a>
-          </li>
-          
-          <li class="nav-item col-2 text-center">
-            <a class="nav-link" href="{% url 'zapato' %}"><b> Zapatos</b></a>
-          </li>
-  
-          <li class="nav-item col-2 text-center" >
-            <a class="nav-link" href="{% url 'marcas' %}" ><b>Marcas</b></a>
-          </li>
-
-          <li class="nav-item col-2 text-center">
-            <a class="nav-link" href="{% url 'about' %}"><b>About Us</b></a>
-          </li>
-
-          <li class="nav-item col-1 text-center">
-            {% if request.user.datauser.imagen %}
-              <img src="{{ request.user.datauser.imagen.url }}" class="img-fluid pt-1 me-1" style="max-height: 40px;"><b>{{ request.user.datauser.first_name }}</b>
-            {% else %}
-              <img src="/media/profile_images/default.png" class="img-fluid pt-1 me-1" style="max-height: 40px;">
-            {% endif %}
-          </li>
-
-          <li class="nav-item col-1 text-end">  
-            <a class="nav-link" href="{% url 'profile' %}" ><b>Profile <i class="fa-solid fa-user"></i></b></a>
-          </li> 
-
-          <li class="nav-item col-1 text-end">
-            <a class="btn btn-outline-dark my-login" href="{% url 'logout' %}" >Log Out</a>
-          </li> 
-  
-        </ul>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav w-100 justify-content-center" style="text-align:center">
         
-      </div>
+        <li class="nav-item col-1 text-left">
+          <a class="nav-link" href="{% url 'home' %}"><b>Home</b></a>
+        </li>
+
+        <li class="nav-item col-2 text-center">
+          <a class="nav-link" href="{% url 'cartera' %}"><b> Carteras</b></a>
+        </li>
+        
+        <li class="nav-item col-2 text-center">
+          <a class="nav-link" href="{% url 'zapato' %}"><b> Zapatos</b></a>
+        </li>
+
+        <li class="nav-item col-2 text-center" >
+          <a class="nav-link" href="{% url 'marcas' %}" ><b>Marcas</b></a>
+        </li>
+
+        <li class="nav-item col-1 text-center">
+          <a class="nav-link" href="{% url 'about' %}"><b>About Us</b></a>
+        </li>
+
+        <li class="nav-item col-1 text-center">
+          {% if request.user.datauser.imagen %}
+            <img src="{{ request.user.datauser.imagen.url }}" class="img-fluid pt-1 me-1" style="max-height: 40px;"><b>{{ request.user.datauser.first_name }}</b>
+          {% else %}
+            <img src="/media/profile_images/default.png" class="img-fluid pt-1 me-1" style="max-height: 40px;">
+          {% endif %}
+        </li>
+
+        <li class="nav-item dropdown text-end" style="display: flex;">  
+          <a class="nav-link" href="{% url 'profile' %}" style="flex-grow: 1;"><b><i class="fa-solid fa-user"></i></b></a>
+          <a class="nav-link dropdown-toggle " id="dropdownMenuLink" role="button" href="#" data-bs-toggle="dropdown" aria-expanded="false" style="flex-grow: 1;"><b><i class="fa-solid fa-message" ></i></b></a>
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'enviar_mensaje'  %}">Enviar mensaje</a>
+            <a class="dropdown-item" href="{% url 'ver_mensajes' %}">Ver Mensajes</a>
+          </ul>
+        </li>
+
+        <li class="nav-item col-1 text-end">
+          <a class="btn btn-outline-dark my-login" href="{% url 'logout' %}" >Log Out</a>
+        </li> 
+
+      </ul>
+      
     </div>
-  </nav>
+  </div>
+</nav>
   
   
   {% block next_content %} {% endblock %} 

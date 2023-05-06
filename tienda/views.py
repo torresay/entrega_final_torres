@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
@@ -245,7 +245,6 @@ def logout(request):
     return redirect('home')
 
 
-# @login_required(login_url='/login/')
 class editProfile(UpdateView):
 
     template = "profile.html"
@@ -305,3 +304,22 @@ class editProfile(UpdateView):
 
             # redirect to Home:
         return render(request, self.template, self.params)
+    
+
+def enviar_mensaje(request):
+    if request.method == 'POST':
+        form = MensajeForm(request.POST)
+        if form.is_valid():
+            mensaje = form.save(commit=False)
+            mensaje.autor = request.user
+            mensaje.save()
+            messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
+            return redirect('ver_mensajes')
+    else:
+        form = MensajeForm()
+    return render(request, 'enviar_mensaje.html', {'form': form})
+
+
+def ver_mensajes(request):
+    mensajes = Mensaje.objects.all().order_by('fecha')
+    return render(request, 'ver_mensajes.html', {'mensajes': mensajes})
