@@ -28,11 +28,7 @@
 
         <li class="nav-item col-2 text-center" >
           <a class="nav-link" href="{% url 'marcas' %}" ><b>Marcas</b></a>
-        </li>
-
-        <li class="nav-item col-1 text-center">
-          <a class="nav-link" href="{% url 'about' %}"><b>About Us</b></a>
-        </li>
+        </li>        
 
         <li class="nav-item col-1 text-center">
           {% if request.user.datauser.imagen %}
